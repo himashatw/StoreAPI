@@ -10,6 +10,7 @@ public class Item {
 	private String itemName;
 	private int qty;
 	private double itemPrice;
+	private int quantity;
 	
 	public Item(int itemId, String itemName, int qty, double itemPrice) {
 		super();
@@ -55,6 +56,14 @@ public class Item {
 	public String toString() {
 		return "Seller [itemId=" + itemId + ", itemName=" + itemName + ", qty=" + qty + ", itemPrice=" + itemPrice
 				+ "]";
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	
