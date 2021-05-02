@@ -19,6 +19,10 @@ public class Item {
 		this.itemPrice = itemPrice;
 	}
 
+	public Item() {
+
+	}
+
 	public int getItemId() {
 		return itemId;
 	}
@@ -53,8 +57,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Seller [itemId=" + itemId + ", itemName=" + itemName + ", qty=" + qty + ", itemPrice=" + itemPrice
-				+ "]";
+		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", qty=" + qty + ", itemPrice=" + itemPrice + "]";
 	}
 
 }

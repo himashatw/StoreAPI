@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.ds.marketrest.model.Item;
+import com.ds.marketrest.resource.ItemUpdateResource;
 
 public interface ItemService {
-	
+
 	public List<Item> findAll();
 
 	public Optional<Item> findById(int id);
@@ -14,7 +15,9 @@ public interface ItemService {
 	public Item addItem(Item item);
 
 	public String deleteById(int id);
-	
-	public Item updateItem(Item item);
+
+	public List<Item> findByName(String name);
+
+	public Item updateItem(int id, ItemUpdateResource itemUpdateResource);
 
 }

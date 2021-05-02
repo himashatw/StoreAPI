@@ -4,47 +4,82 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.ds.marketrest.model.Item;
 import com.ds.marketrest.repository.ItemRepository;
+import com.ds.marketrest.resource.ItemUpdateResource;
 import com.ds.marketrest.service.ItemService;
 
-public class ItemServiceImpl implements ItemService{
-	
+@Component
+public class ItemServiceImpl implements ItemService {
+
 	@Autowired
 	private ItemRepository itemrepository;
 
 	@Override
 	public List<Item> findAll() {
-		// TODO Auto-generated method stub
+
 		return itemrepository.findAll();
 	}
 
 	@Override
 	public Optional<Item> findById(int id) {
-		// TODO Auto-generated method stub
+
 		return itemrepository.findById(id);
 	}
 
 	@Override
 	public Item addItem(Item item) {
-		// TODO Auto-generated method stub
+
 		itemrepository.save(item);
 		return item;
 	}
 
 	@Override
 	public String deleteById(int id) {
-		// TODO Auto-generated method stub
-		itemrepository.deleteById(id);
-		return "Item" + id + "deleted successfully";
+
+		Item b1 = new Item();
+		int deletedItem = b1.getItemId();
+
+		if (deletedItem == id) {
+
+			itemrepository.deleteById(id);
+			return "Item " + id + " deleted successfully";
+
+		} else {
+			return "Item id is Invalid";
+		}
 	}
 
 	@Override
-	public Item updateItem(Item item) {
-		// TODO Auto-generated method stub
-		itemrepository.save(item);
-		return item;
+	public Item updateItem(int id, ItemUpdateResource itemUpdateResource) {
+		Optional<Item> itemOptional = itemrepository.findById(id);
+		if (itemOptional.isPresent()) {
+			Item item = itemOptional.get();// optional covert to an object
+			if (itemUpdateResource.getItemName() != null && (!itemUpdateResource.getItemName().isEmpty())) {
+				item.setItemName(itemUpdateResource.getItemName());
+			}
+			if (itemUpdateResource.getQty() != 0) {
+				item.setQty(itemUpdateResource.getQty());
+			}
+			if (itemUpdateResource.getItemPrice() != 0.0) {
+				item.setItemPrice(itemUpdateResource.getItemPrice());
+			}
+			itemrepository.save(item);
+			return item;
+
+		} else {
+
+			return null;
+		}
+
+	}
+
+	@Override
+	public List<Item> findByName(String name) {
+
+		return itemrepository.findByItemNameContaining(name);
 	}
 
 }
