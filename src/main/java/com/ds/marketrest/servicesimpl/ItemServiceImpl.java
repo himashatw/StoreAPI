@@ -39,15 +39,13 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public String deleteById(int id) {
 
-		Item b1 = new Item();
-		int deletedItem = b1.getItemId();
-
-		if (deletedItem == id) {
-
+		Item item = new Item();
+		int itemId = item.getItemId();
+		if(itemId != id) {
 			itemrepository.deleteById(id);
-			return "Item " + id + " deleted successfully";
-
-		} else {
+			return "Item Id "+ id +" Deleted Successfully";
+		}else {
+			
 			return "Item id is Invalid";
 		}
 	}
