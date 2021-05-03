@@ -21,7 +21,7 @@ import com.ds.marketrest.resource.ItemUpdateResource;
 import com.ds.marketrest.service.ItemService;
 
 @RestController
-@RequestMapping(value = "/item")
+@RequestMapping(value = "api/item")
 @CrossOrigin(origins = "*") // this annotation used connect different port numbers
 public class ItemController {
 
