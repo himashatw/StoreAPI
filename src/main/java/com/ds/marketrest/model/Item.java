@@ -8,13 +8,15 @@ public class Item {
 	@Id
 	private int itemId;
 	private String itemName;
+	private String itemCatagory;
 	private int qty;
 	private double itemPrice;
 
-	public Item(int itemId, String itemName, int qty, double itemPrice) {
+	public Item(int itemId, String itemName,String itemCatagory, int qty, double itemPrice) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
+		this.itemCatagory = itemCatagory;
 		this.qty = qty;
 		this.itemPrice = itemPrice;
 	}
@@ -37,6 +39,14 @@ public class Item {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+	
+	public String getItemCatagory() {
+		return itemCatagory;
+	}
+
+	public void setItemCatagory(String itemCatagory) {
+		this.itemCatagory = itemCatagory;
 	}
 
 	public int getQty() {
