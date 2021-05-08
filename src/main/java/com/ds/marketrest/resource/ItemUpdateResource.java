@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class ItemUpdateResource {
 
 	private String itemName;
+	private String itemCatagory;
 	private int qty;
 	private double itemPrice;
 
@@ -16,6 +17,14 @@ public class ItemUpdateResource {
 
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	public String getItemCatagory() {
+		return itemCatagory;
+	}
+
+	public void setItemCatagory(String itemCatagory) {
+		this.itemCatagory = itemCatagory;
 	}
 
 	public int getQty() {
