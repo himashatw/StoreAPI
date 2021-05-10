@@ -58,11 +58,11 @@ public class ItemServiceImpl implements ItemService {
 			if (itemUpdateResource.getItemName() != null && (!itemUpdateResource.getItemName().isEmpty())) {
 				item.setItemName(itemUpdateResource.getItemName());
 			}
+			if (itemUpdateResource.getUrl() != null && (!itemUpdateResource.getUrl().isEmpty())) {
+				item.setUrl(itemUpdateResource.getUrl());
+			}
 			if (itemUpdateResource.getItemCatagory() != null && (!itemUpdateResource.getItemCatagory().isEmpty())) {
 				item.setItemCatagory(itemUpdateResource.getItemCatagory());
-			}
-			if (itemUpdateResource.getQty() != 0) {
-				item.setQty(itemUpdateResource.getQty());
 			}
 			if (itemUpdateResource.getItemPrice() != 0.0) {
 				item.setItemPrice(itemUpdateResource.getItemPrice());
