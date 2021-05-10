@@ -8,14 +8,16 @@ public class Item {
 	@Id
 	private int itemId;
 	private String itemName;
+	private String url;
 	private String itemCatagory;
 	private int qty;
 	private double itemPrice;
 
-	public Item(int itemId, String itemName,String itemCatagory, int qty, double itemPrice) {
+	public Item(int itemId, String itemName,String url,String itemCatagory, int qty, double itemPrice) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
+		this.url = url;
 		this.itemCatagory = itemCatagory;
 		this.qty = qty;
 		this.itemPrice = itemPrice;
@@ -41,6 +43,14 @@ public class Item {
 		this.itemName = itemName;
 	}
 	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	public String getItemCatagory() {
 		return itemCatagory;
 	}
@@ -67,7 +77,8 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", qty=" + qty + ", itemPrice=" + itemPrice + "]";
+		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", url=" + url + ", itemCatagory=" + itemCatagory
+				+ ", qty=" + qty + ", itemPrice=" + itemPrice + "]";
 	}
 
 }
