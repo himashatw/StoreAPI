@@ -17,6 +17,8 @@ public interface ItemService {
 	public String deleteById(int id);
 
 	public List<Item> findByName(String name);
+	
+	public List<Item> findByCatagory(String catagory);
 
 	public Item updateItem(int id, ItemUpdateResource itemUpdateResource);
 

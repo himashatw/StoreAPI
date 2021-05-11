@@ -83,4 +83,10 @@ public class ItemServiceImpl implements ItemService {
 		return itemrepository.findByItemNameContaining(name);
 	}
 
+	@Override
+	public List<Item> findByCatagory(String catagory) {
+		return itemrepository.findByItemCatagory(catagory);
+		
+	}
+
 }

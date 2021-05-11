@@ -105,5 +105,19 @@ public class ItemController {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
+	@GetMapping("/category/{catagory}")
+	public ResponseEntity<Object> findByItemCatagory(@PathVariable(value = "catagory", required = true) String catagory) {
+		try {
+			List<Item> item = itemService.findByCatagory(catagory);
+			if (item != null) {
+				return new ResponseEntity<>(item, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			}
+		} catch (Exception e) {
+			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 }
